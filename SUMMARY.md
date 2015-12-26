@@ -2,7 +2,7 @@
 
 * [1. 介绍](1_Introduction.md)
     * [1.1 编写本文档的目标](1_1_DocumentationGuide.md)
-    * [1.2 可以用SystemTap做什么](1_2_SystemTapCapabilities.md)
+    * [1.2 SystemTap的能力](1_2_SystemTapCapabilities.md)
 	* [1.3 SystemTap的局限](1_3_LimitationsOfSystemTap.md)
 * [2. 使用](2_USingSystemTap.md)
     * [2.1 安装和配置](2_1_InstallationAndSetup.md)
