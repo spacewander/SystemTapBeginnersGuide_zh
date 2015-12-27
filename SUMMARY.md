@@ -22,7 +22,7 @@
 * [5. SystemTap脚本集锦](5_UsefulSystemTapScripts.md)
 	* [5.1 网络](5_1_Network.md)
 	* [5.2 磁盘](5_2_Disk.md)
-	* [5.3 Profile](5_3_Profiling.md)
+	* [5.3 剖析](5_3_Profiling.md)
 	* [5.4 标识用户空间锁竞争](5_4_IdentifyingContendedUserSpaceLocks.md)
 * [6. 解读错误信息](6_UnderstandingSystemTapErrors.md)
 	* [6.1 解析和文法错误](6_1_ParseAndSemanticErrors.md)
