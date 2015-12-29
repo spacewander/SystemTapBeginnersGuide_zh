@@ -4,7 +4,7 @@
     * [1.1 编写本文档的目标](1_1_DocumentationGuide.md)
     * [1.2 SystemTap的能力](1_2_SystemTapCapabilities.md)
 	* [1.3 SystemTap的局限](1_3_LimitationsOfSystemTap.md)
-* [2. 使用](2_USingSystemTap.md)
+* [2. 使用](2_UsingSystemTap.md)
     * [2.1 安装和配置](2_1_InstallationAndSetup.md)
 	* [2.2 为其它计算机生成检测模块](2_2_GeneratingInstrumentationForOtherComputers.md)
 	* [2.3 运行SystemTap脚本](2_3_RunningSystemTapScripts,md)
