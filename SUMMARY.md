@@ -7,7 +7,7 @@
 * [2. 使用](2_UsingSystemTap.md)
     * [2.1 安装和配置](2_1_InstallationAndSetup.md)
 	* [2.2 为其它计算机生成检测模块](2_2_GeneratingInstrumentationForOtherComputers.md)
-	* [2.3 运行SystemTap脚本](2_3_RunningSystemTapScripts,md)
+	* [2.3 运行SystemTap脚本](2_3_RunningSystemTapScripts.md)
 * [3. 工作细节](3_UndestandingHowSystemTapWorks.md)
 	* [3.1 结构](3_1_Architecture.md)
 	* [3.2 脚本](3_2_SystemTapScripts.md)
