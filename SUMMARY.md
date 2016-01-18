@@ -11,7 +11,7 @@
 * [3. 工作细节](3_UnderstandingHowSystemTapWorks.md)
 	* [3.1 结构](3_1_Architecture.md)
 	* [3.2 脚本](3_2_SystemTapScripts.md)
-	* [3.3 处理逻辑的基本结构](3_3_BasicSystemTapHandlerConstructs.md)
+	* [3.3 处理程序的基本结构](3_3_BasicSystemTapHandlerConstructs.md)
 	* [3.4 关联数组](3_4_AssociativeArrays.md)
 	* [3.5 数组操作](3_5_ArrayOperationsInSystemTap.md)
 	* [3.6 Tapsets](3_6_Tapsets.md)
