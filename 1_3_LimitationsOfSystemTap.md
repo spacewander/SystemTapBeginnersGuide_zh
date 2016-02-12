@@ -1,4 +1,4 @@
-# 1.3 SystemTap的局限
+# 1.3. SystemTap的局限
 
 当前版本的SystemTap提供的探测内核空间事件的众多选项，可以在不同版本的内核下使用。然而，SystemTap对探测用户空间事件的支持依赖于内核的支持（需要utrace机制），而多数内核缺乏这一支持。结果是，仅有部分内核上的SystemTap版本支持用户空间探测。
 当前，SystemTap社区正集中力量改进SystemTap的用户空间探测能力。

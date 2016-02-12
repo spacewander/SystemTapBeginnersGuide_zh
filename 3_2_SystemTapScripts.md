@@ -48,13 +48,16 @@ SystemTap事件大致分为两类：同步事件和异步事件。
 同步事件包括：
 
 **syscall.system_call**
+
 进入名为`system_call`的系统调用。如果想要监控的是退出某个系统调用的事件，在后面添加`.return`。举个例子，要想监控进入和退出系统调用`close`的事件，应该使用`syscall.close`和`syscall.close.return`。
 
 **vfs.file_operation**
+
 进入虚拟文件系统（VFS）名为`file_operation`的文件操作。跟系统调用事件一样，在后面添加`.return`可以监控对应的退出事件。
-译注：`file_operation`取值的范畴，取决于当前内核中`struct file_operations`的定义的操作（可能位于`include/linux/fs.h`中，版本不同位置会不一样，建议上http://lxr.free-electrons.com/ident查找`file_operations`）。
+译注：`file_operation`取值的范畴，取决于当前内核中`struct file_operations`的定义的操作（可能位于`include/linux/fs.h`中，版本不同位置会不一样，建议上http://lxr.free-electrons.com/ident 查找`file_operations`）。
 
 **kernel.function("function")**
+
 进入名为`function`的内核函数。举个例子，`kernel.function("sys_open")`即内核函数`sys_open`被调用时所触发的事件。同样，`kernel.function("sys_open").return`会在`sys_open`函数调用返回时被触发。
 
 在定义探测事件时，可以使用像`*`这样的通配符。你也可以用内核源码文件名限定要跟踪的函数。看下面的例子：
@@ -66,9 +69,11 @@ SystemTap事件大致分为两类：同步事件和异步事件。
 译注：例子中用的是探测内核源码中的函数的语法。完整的语法是`func_name@file_name[:line_num]`，由函数名、文件名、行号三部分组成。其中函数名在例子中为`*`，匹配任意函数。行号是可选的，在上面的例子里就被忽略掉了。如果想指定某个范围内的函数，如从行x到y，使用`:x-y`这样格式作为行号。
 
 **kernel.trace("tracepoint")**
+
 到达名为`tracepoint`的静态内核探测点（tracepoint）。较新的内核（>= 2.6.30）包含了特定事件的检测代码。这些事件一般会被标记成静态内核探测点。一个例子是，`kernel.trace("kfree_skb")`表示内核释放了一个网络缓冲区的事件。（译注：想知道当前内核设置了哪些静态内核探测点吗？你需要运行`sudo perf list`。）
 
 **module("module").function("function")**
+
 进入指定模块`module`的函数`function`。举个例子：
 
 >     probe module("ext3").function("*") { }
@@ -85,12 +90,15 @@ SystemTap事件大致分为两类：同步事件和异步事件。
 这部分事件主要包含计数器、定时器和其它类似的东西。
 
 **begin**
+
 SystemTap会话的启动事件，会在脚本开始时触发。
 
 **end**
+
 SystemTap会话的结束事件，会在脚本结束时触发。
 
 **timer events**
+
 用于周期性执行某段处理程序。举个例子：
 
 >    probe timer.s(4)
@@ -128,6 +136,7 @@ probe begin
 > SystemTap脚本会一直运行，直到执行了`exit()`函数。如果你想中途退出一个脚本，可以用`Ctrl+c`中断。 
 
 **printf**
+
 `printf()`是最简单的SystemTap函数之一，可以跟许多函数搭配使用，用来输出数据。通常我们会这样调用`printf()`：
 
     printf ("format string\n", arguments)
@@ -156,30 +165,36 @@ df(3433) open
 hald(2360) open
 ```
 
-SystemTap supports a wide variety of functions that can be used as  printf () arguments. Example 3.5, “variables-in-printf-statements.stp” uses the SystemTap functions execname() (name of the process that called a kernel function/performed a system call) and  pid() (current process ID).
 你可以在`printf()`里使用其他的SystemTap函数。比如上面的例子中就用到`execname()`（获取触发事件的进程名）和`pid()`（当前进程ID）。
 
 下面列出常用的SystemTap函数：
 
 **tid()**
+
 当前的tid（thread id）。
 
 **uid()**
+
 当前的uid。
 
 **cpu()**
+
 当前的CPU号
 
 **gettimeofday_s()**
+
 自epoch以来的秒数
 
 **ctime()**
+
 将上一个函数返回的秒数转化成时间字符串
 
 **pp()**
+
 返回描述当前处理的探测点的字符串
 
 **thread_indent()**
+
 你可以用这个函数来组织你的输出结果。这个函数接受一个表示缩进差额的参数，用来更新当前线程的“缩进计数器”（其实就是用于缩进的空格数）。它返回的是加了足够缩进的标识字符串。
 这个标识字符串包括一个时间戳（表示自从该线程首次调用`thread_indent()`以来所经过的毫秒数），一个进程名，一个tid。由此可以清晰地看出函数的调用次序和调用层级，和每次调用时的间隔。
 如果一个函数调用后随即退出，很容易就能看出被触发的两个事件是相关的。然而，在大多数情况下，一个函数调用和退出之间，往往会有调用其他别的函数。通过缩进，可以相对更清晰地看出某个函数调用和退出的时机。
@@ -225,9 +240,11 @@ probe kernel.function("*@net/socket.c").return
 * 触发事件的函数名。
 
 **name**
+
 返回系统调用的名字。这个变量只能在`syscall.system_call`触发的处理程序中使用。
 
 **target()**
+
 当你通过`stap script -x PID`或`stap script -c command`来执行某个脚本`script`时，`target()`会返回你指定的PID或命令名。举个例子：
 
 ```

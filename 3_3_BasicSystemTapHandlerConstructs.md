@@ -60,21 +60,27 @@ current files_stat max_files: 386070
 有许多函数可以通过指向基本类型的指针获取内核空间对应地址上的数据，在此一一列出。在第4.2节，我们还会谈到获取用户空间数据的类似函数。
 
 **kernel_char(address)**
+
 从内核空间地址中获取char变量
 
 **kernel_short(address)**
+
 从内核空间地址中获取short变量
 
 **kernel_int(address)**
+
 从内核空间地址中获取int变量
 
 **kernel_long(address)**
+
 从内核空间地址中获取long变量
 
 **kernel_string(address)**
+
 从内核空间地址中获取字符串
 
 **kernel_string_n(address, n)**
+
 从内核空间地址中获取长为n的字符串
 
 ### 整齐打印目标变量（Pretty Printing Target Variables）
@@ -82,15 +88,19 @@ current files_stat max_files: 386070
 某些场景中，我们可能需要输出当前可访问的各种变量，以便于记录底层的变化。SystemTap提供了一些操作，可以生成描述特定目标变量的字符串：
 
 **$$vars**
+
 输出作用域内每个变量的值。等价于`sprintf("parm1=%x ... parmN=%x var1=%x ... varN=%x", parm1, ..., parmN, var1, ..., varN)`。如果变量的值在运行时找不到，输出`=?`。
 
 **$$locals**
+
 同`$$vars`，只输出本地变量。
 
 **$$parms**
+
 同`$$vars`，只输出函数入参。
 
 **$$return**
+
 仅在带`return`的探针中可用。如果被监控的函数有返回值，它等价于`sprintf("return=%x", $return)`，否则为空字符串。
 
 下面的例子中，我们会输出`vfs_read`的入参：

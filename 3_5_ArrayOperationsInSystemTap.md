@@ -102,18 +102,23 @@ probe vfs.read
 要想从聚集变量中获取汇总的结果，使用这样的语法`@extractor(variable/array index expression)`。`extractor`可以取以下的函数：
 
 **count**
+
 返回`variable/array index expression`中存储的数值的数目。以上面为例，`@count(reads[execname()])`返回对应进程的聚集变量所存储的数据数。
 
 **sum**
+
 返回`variable/array index expression`中存储的数值的和。以上面为例，`@count(reads[execname()])`返回对应进程的读总数。
 
 **min**
+
 返回`variable/array index expression`中存储的数值的最小值。
 
 **max**
+
 返回`variable/array index expression`中存储的数值的最大值。
 
 **avg**
+
 返回`variable/array index expression`中存储的数值的数目。
 
 你可以使用多重索引表达式在数组里关联一个聚集变量（最多使用9个索引）。这么做的好处在于，你可以在数组中附加更多的上下文信息。举个例子：
