@@ -2,7 +2,7 @@
 
 要想使用`SystemTap`，需要安装跟目标内核版本匹配的`-devel`、`-debuginfo`和`-debuginfo-common-arch`包。如果要在不止一个内核上运行`SystemTap`，需要根据每个内核的版本安装对应的`-devel`和`-debuginfo`包。
 
-接下来的几个小节里，我们会详细讲解这一过程。（译注：SystemTap的[wiki](https://sourceware.org/systemtap/wiki/)里面有针对Linux各发行版的安装步骤。本节内容仅适用于RHEL，且不能保证及时更新，建议跳过本节，直接参考官方文档。）
+接下来的几个小节里，我们会详细讲解这一过程。（译注：SystemTap的[wiki](https://sourceware.org/systemtap/wiki/)里面有针对Linux各发行版的安装步骤。本节内容仅适用于RHEL，且不能保证及时更新，建议跳过本节，直接参考官方文档。如果你正好用的是ubuntu，可以参考ubuntu的[wiki](https://wiki.ubuntu.com/Kernel/Systemtap)）
 
 > 很多用户把`-debuginfo`记成了`-debug`。要想使用SystemTap，切记安装对应内核的`-debuginfo`包，不是`-debug`包。
 
