@@ -99,4 +99,4 @@ read performed
 Pass 5: run completed in 10usr/40sys/73real ms.
 ```
 
-从`Pass 5`开始的最后三行说明SystemTao已经成功地注入并运行了内核探测指令，捕获了要探测的事件（在这个例子里，指虚拟文件系统的读事件），并执行了有效的处理程序（输出“read performed”并正常退出）。
+从`Pass 5`开始的最后三行说明SystemTap已经成功地注入并运行了内核探测指令，捕获了要探测的事件（在这个例子里，指虚拟文件系统的读事件），并执行了有效的处理程序（输出“read performed”并正常退出）。
